@@ -1,7 +1,6 @@
 package com.webcrew.easystory.domain.entities;
 
-import com.webcrew.easystory.domain.values.Client.ClientId;
-import com.webcrew.easystory.domain.values.Client.Username;
+import com.webcrew.easystory.domain.values.Client.*;
 import lombok.Data;
 import org.axonframework.modelling.command.AggregateIdentifier;
 
@@ -30,14 +29,34 @@ public class Client {
     })
     private Username username;
 
+    @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name="value", column = @Column(name="password", length = 200, nullable = false))
+    })
     private Password password;
 
+    @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name= "value", column = @Column(name = "firstname", length = 150, nullable = false))
+    })
     private FirstName firstName;
 
+    @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name= "value", column = @Column(name = "lastname", length = 150, nullable = false))
+    })
     private LastName lastName;
 
+    @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name= "value", column = @Column(name = "email", length = 150, nullable = false))
+    })
     private Email email;
 
+    @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name= "value", column = @Column(name = "telephone", length = 150, nullable = false))
+    })
     private Telephone telephone;
 
 }
