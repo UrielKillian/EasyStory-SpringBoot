@@ -17,6 +17,7 @@ import javax.persistence.*;
 )
 public class Client {
     @AggregateIdentifier
+    //VALID OBJECTS, son del tipo Embedded
     @EmbeddedId
     @AttributeOverrides({
             @AttributeOverride(name = "value", column = @Column(name = "id", columnDefinition = "BINARY(16)"))
