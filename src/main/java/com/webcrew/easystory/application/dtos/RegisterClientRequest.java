@@ -1,11 +1,8 @@
-package com.webcrew.easystory.application.commands;
-
+package com.webcrew.easystory.application.dtos;
 import lombok.Value;
-import org.axonframework.modelling.command.TargetAggregateIdentifier;
 
 @Value
-public class RegisterClient{
-    @TargetAggregateIdentifier
+public class RegisterClientRequest {
     private String id;
     private String username;
     private String firstName;
@@ -13,6 +10,4 @@ public class RegisterClient{
     private String lastName;
     private String email;
     private String telephone;
-
-
 }
