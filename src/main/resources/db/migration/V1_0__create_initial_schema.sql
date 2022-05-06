@@ -1,4 +1,4 @@
-CREATE TABLE clients (
+CREATE TABLE clients
     id BINARY(16) NOT NULL,
     username VARCHAR(150) NOT NULL,
     password VARCHAR(150) NOT NULL,
@@ -10,6 +10,5 @@ CREATE TABLE clients (
     created_by BINARY(16) NULL,
     updated_at DATETIME  NULL,
     updated_by BINARY(16)  NULL,
-    PRIMARY KEY (id),
-
-)
+    PRIMARY KEY (id)
+);
