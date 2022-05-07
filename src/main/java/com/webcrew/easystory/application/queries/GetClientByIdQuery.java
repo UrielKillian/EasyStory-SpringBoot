@@ -1,4 +1,4 @@
-package com.webcrew.easystory.application.querys;
+package com.webcrew.easystory.application.queries;
 
 import lombok.Data;
 

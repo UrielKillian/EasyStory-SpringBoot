@@ -1,9 +1,9 @@
 package com.webcrew.easystory.application.dtos;
 
-import lombok.Value;
+import lombok.Data;
 
-@Value
-public class RegisterLectorResponse {
+@Data
+public class EditLectorRequest {
     private String id;
     private String username;
     private String firstName;
