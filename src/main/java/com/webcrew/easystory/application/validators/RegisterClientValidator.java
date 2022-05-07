@@ -3,11 +3,12 @@ import com.webcrew.easystory.application.dtos.RegisterClientRequest;
 
 import com.webcrew.easystory.application.notification.Notification;
 import com.webcrew.easystory.domain.entities.Client;
-
+import org.springframework.stereotype.Component;
 import com.webcrew.easystory.infraestructureRepositories.ClientInfo;
 
 import java.util.Optional;
 
+@Component
 public class RegisterClientValidator {
     private final ClientInfo clientInfo;
 

@@ -1,4 +1,4 @@
-CREATE TABLE clients
+CREATE TABLE clients(
     id BINARY(16) NOT NULL,
     username VARCHAR(150) NOT NULL,
     password VARCHAR(150) NOT NULL,
@@ -12,3 +12,5 @@ CREATE TABLE clients
     updated_by BINARY(16)  NULL,
     PRIMARY KEY (id)
 );
+
+
