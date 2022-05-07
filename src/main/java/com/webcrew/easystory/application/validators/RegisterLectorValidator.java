@@ -1,21 +1,25 @@
 package com.webcrew.easystory.application.validators;
 
 import com.webcrew.easystory.application.dtos.RegisterClientRequest;
-
+import com.webcrew.easystory.application.dtos.RegisterLectorRequest;
 import com.webcrew.easystory.application.notification.Notification;
 import com.webcrew.easystory.domain.entities.Client;
+import com.webcrew.easystory.domain.entities.Lector;
 import com.webcrew.easystory.infrastructure.repositories.ClientRepository;
+import com.webcrew.easystory.infrastructure.repositories.LectorRepository;
+import org.springframework.stereotype.Component;
 
 import java.util.Optional;
 
-public class RegisterClientValidator {
-    private final ClientRepository clientRepository;
+@Component
+public class RegisterLectorValidator {
+    private final LectorRepository lectorRepository;
 
-    public RegisterClientValidator(ClientRepository clientRepository) {
-        this.clientRepository = clientRepository;
+    public RegisterLectorValidator(LectorRepository lectorRepository) {
+        this.lectorRepository = lectorRepository;
     }
 
-    public Notification validate(RegisterClientRequest registerClientRequest) {
+    public Notification validate(RegisterLectorRequest registerClientRequest) {
         Notification notification = new Notification();
         String Id = registerClientRequest.getId() != null ? registerClientRequest.getId().trim() : "";
         if (Id.isEmpty()) {
@@ -45,8 +49,8 @@ public class RegisterClientValidator {
         if (notification.hasErrors()) {
             return notification;
         }
-        Optional<Client> clientOptional = clientRepository.findByIdValue(Id);
-        if (clientOptional.isPresent()) {
+        Optional<Lector> lectorOptional = lectorRepository.findByEmail(email);
+        if (lectorOptional.isPresent()) {
             notification.addError("Client id is taken");
         }
         return notification;

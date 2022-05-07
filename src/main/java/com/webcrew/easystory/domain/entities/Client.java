@@ -1,5 +1,6 @@
 package com.webcrew.easystory.domain.entities;
 
+import com.webcrew.easystory.domain.values.AuditTrail;
 import com.webcrew.easystory.domain.values.Client.*;
 import lombok.Data;
 import org.axonframework.modelling.command.AggregateIdentifier;
@@ -60,6 +61,21 @@ public class Client {
     })
     private Telephone telephone;
 
+    @Embedded
+    private AuditTrail auditTrail;
+
+    public Client(ClientId clientId, Username username, Password password, FirstName firstName, LastName lastName, Email email, Telephone telephone, AuditTrail auditTrail) {
+    setId(clientId);
+    setUsername(username);
+    setPassword(password);
+    setFirstName(firstName);
+    setLastName(lastName);
+    setEmail(email);
+    setTelephone(telephone);
+    setAuditTrail(auditTrail);
+    }
+
+    protected Client(){}
 }
 
 

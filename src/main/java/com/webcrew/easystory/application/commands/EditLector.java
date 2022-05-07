@@ -4,7 +4,7 @@ import lombok.Value;
 import org.axonframework.modelling.command.TargetAggregateIdentifier;
 
 @Value
-public class EditClient{
+public class EditLector {
     @TargetAggregateIdentifier
     private String id;
     private String username;

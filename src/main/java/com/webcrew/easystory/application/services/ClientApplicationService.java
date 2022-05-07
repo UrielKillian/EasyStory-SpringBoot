@@ -1,14 +1,11 @@
 package com.webcrew.easystory.application.services;
 
-import com.webcrew.easystory.application.commands.RegisterClient;
+import com.webcrew.easystory.application.commands.RegisterLector;
 import com.webcrew.easystory.application.dtos.RegisterClientRequest;
 import com.webcrew.easystory.application.dtos.RegisterClientResponse;
 import org.axonframework.commandhandling.gateway.CommandGateway;
-import org.axonframework.messaging.responsetypes.ResponseTypes;
 import org.axonframework.queryhandling.QueryGateway;
 import org.springframework.stereotype.Component;
-import com.webcrew.easystory.application.dtos.RegisterClientResponse;
-import com.webcrew.easystory.application.dtos.RegisterClientRequest;
 import com.webcrew.easystory.application.enums.ResultType;
 import com.webcrew.easystory.application.notification.Notification;
 import com.webcrew.easystory.application.notification.Result;
@@ -39,7 +36,7 @@ public class ClientApplicationService {
             return Result.failure(notification);
         }
         String clientId = UUID.randomUUID().toString();
-        RegisterClient registerClient = new RegisterClient(
+        RegisterLector registerClient = new RegisterLector(
                 clientId,
                 registerClientRequest.getUsername().trim(),
                 registerClientRequest.getId().trim(),

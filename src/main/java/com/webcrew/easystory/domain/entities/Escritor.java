@@ -1,6 +1,6 @@
 package com.webcrew.easystory.domain.entities;
-import com.webcrew.easystory.domain.values.Client.ClientId;
-import com.webcrew.easystory.domain.values.Client.FirstName;
+import com.webcrew.easystory.domain.values.AuditTrail;
+import com.webcrew.easystory.domain.values.Client.*;
 import lombok.Data;
 import javax.persistence.*;
 
@@ -8,15 +8,14 @@ import javax.persistence.*;
 @Data
 @DiscriminatorValue(value="2")
 public class Escritor extends Client {
-    @Embedded
-    @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "clientId", length = 11))
-    })
-    private ClientId clientId;
 
-    @Embedded
-    @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "FirstName", length = 150))
-    })
-    private FirstName firstName;
+    public Escritor(ClientId clientId, Username username, Password password, FirstName firstName, LastName lastName, Email email, Telephone telephone, AuditTrail auditTrail) {
+        super(clientId, username, password, firstName, lastName, email, telephone, auditTrail);
+
+    }
+
+    protected Escritor(){}
+
+
+
 }

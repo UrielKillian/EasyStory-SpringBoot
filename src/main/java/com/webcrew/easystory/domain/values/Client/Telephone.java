@@ -20,7 +20,7 @@ public class Telephone {
         this.value = "";
     }
 
-    private static Result<Telephone, Notification>create(String telephone) {
+    public static Result<Telephone, Notification>create(String telephone) {
         Notification notification = new Notification();
         telephone = telephone == null ? "" : telephone.trim();
         if(telephone.isEmpty()){
