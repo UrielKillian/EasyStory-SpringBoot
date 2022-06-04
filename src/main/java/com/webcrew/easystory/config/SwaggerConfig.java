@@ -1,15 +1,19 @@
 package com.webcrew.easystory.config;
 
-//@Configuration
-//@EnableSwagger2
+import io.swagger.v3.oas.models.info.Info;
+import io.swagger.v3.oas.models.OpenAPI;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
 public class SwaggerConfig {
-    /*@Bean
-    public Docket api() {
-        return new Docket(DocumentationType.SWAGGER_2)
-            .tags(new Tag("Clients", "Clients"))
-            .select()
-            .apis(RequestHandlerSelectors.any())
-            .paths(PathSelectors.any())
-            .build();
-    }*/
+    @Bean
+    public OpenAPI openApi() {
+        return new OpenAPI()
+                .info(new Info()
+                        .title("Title")
+                        .description("my little API")
+                        .version("v1.0")
+                );
+    }
 }
